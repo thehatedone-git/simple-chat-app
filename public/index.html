@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple 1-on-1 Chat</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="login-screen" class="screen">
+      <div class="login-card">
+        <h1>💬 Simple Chat</h1>
+        <p>Enter a username to start chatting</p>
+        <input type="text" id="username-input" placeholder="Your username" maxlength="20" autocomplete="off" />
+        <button id="join-btn">Join</button>
+        <p id="login-error" class="error"></p>
+      </div>
+    </div>
+
+    <div id="chat-screen" class="screen hidden">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h2>Online</h2>
+          <span id="my-username"></span>
+        </div>
+        <ul id="user-list"></ul>
+      </div>
+
+      <div class="chat-area">
+        <div id="no-chat" class="no-chat">
+          <p>Select a user to start chatting</p>
+        </div>
+
+        <div id="active-chat" class="hidden">
+          <div class="chat-header">
+            <h3 id="chat-with"></h3>
+            <span id="typing-indicator" class="typing hidden">typing...</span>
+          </div>
+          <div id="messages" class="messages"></div>
+          <div class="input-area">
+            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+            <button id="send-btn">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="client.js"></script>
+</body>
+</html>
